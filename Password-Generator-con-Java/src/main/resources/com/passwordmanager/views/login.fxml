@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.passwordmanager.controller.LoginController"
+      alignment="CENTER"
+      spacing="16"
+      stylesheets="@../css/styles.css">
+
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <!-- Título -->
+    <Label fx:id="titleLabel" styleClass="title-label"/>
+
+    <!-- Campo contraseña maestra -->
+    <VBox spacing="6">
+        <Label text="Contraseña maestra" styleClass="field-label"/>
+        <PasswordField fx:id="passwordField"
+                       promptText="Introduce tu contraseña maestra"
+                       styleClass="input-field"/>
+    </VBox>
+
+    <!-- Campo confirmar (solo visible en registro) -->
+    <VBox fx:id="confirmBox" spacing="6">
+        <Label text="Confirmar contraseña" styleClass="field-label"/>
+        <PasswordField fx:id="confirmField"
+                       promptText="Repite tu contraseña maestra"
+                       styleClass="input-field"/>
+    </VBox>
+
+    <!-- Mensaje de error -->
+    <Label fx:id="errorLabel" styleClass="error-label" wrapText="true"/>
+
+    <!-- Botón principal -->
+    <Button fx:id="actionButton"
+            onAction="#handleAction"
+            styleClass="primary-button"
+            maxWidth="Infinity"/>
+
+</VBox>

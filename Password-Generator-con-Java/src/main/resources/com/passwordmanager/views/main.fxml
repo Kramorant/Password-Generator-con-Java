@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.passwordmanager.controller.MainController"
+      spacing="12"
+      stylesheets="@../css/styles.css">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Barra superior -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField"
+                   promptText="Buscar por título..."
+                   styleClass="input-field"
+                   HBox.hgrow="ALWAYS"/>
+        <Button text="+ Nueva contraseña"
+                onAction="#handleNew"
+                styleClass="primary-button"/>
+        <Button text="Cerrar sesión"
+                onAction="#handleLogout"
+                styleClass="secondary-button"/>
+    </HBox>
+
+    <!-- Tabla de contraseñas -->
+    <TableView fx:id="passwordTable"
+               VBox.vgrow="ALWAYS"
+               placeholder="&lt;Label text='No hay contraseñas guardadas'/&gt;">
+
+        <columns>
+            <TableColumn fx:id="colTitle"    text="Título"   prefWidth="180"/>
+            <TableColumn fx:id="colUsername" text="Usuario"  prefWidth="180"/>
+            <TableColumn fx:id="colCreated"  text="Creado"   prefWidth="150"/>
+            <TableColumn fx:id="colActions"  text="Acciones" prefWidth="160"/>
+        </columns>
+    </TableView>
+
+    <!-- Barra de estado -->
+    <Label fx:id="statusLabel" styleClass="status-label"/>
+
+</VBox>
